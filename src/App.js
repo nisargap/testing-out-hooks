@@ -1,28 +1,16 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+function SimpleInput() {
+  const [state, setName] = useState({name: ""});
+  return (
+    <div>
+      <h1>Simple Input Component</h1>
+      <input type="text" value={state.name} onChange={(event) => setName({name: event.target.value})} />
+      <h1>{state.name}</h1>
+    </div>
+  )
 }
 
-export default App;
+export default function App() {
+  return <SimpleInput />;
+}
